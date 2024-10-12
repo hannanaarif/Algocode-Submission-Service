@@ -1,5 +1,4 @@
-const moongoose = require('moongoose');
-const mongoose =require('moongoose');
+const mongoose = require('mongoose');
 
 const submissionSchema=new mongoose.Schema({
     userId:{
@@ -25,5 +24,5 @@ const submissionSchema=new mongoose.Schema({
     }
 });
 
-const Submission=moongoose.model('Submission',submissionSchema);
+const Submission=mongoose.model('Submission',submissionSchema);
 module.exports=Submission
