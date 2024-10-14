@@ -1,3 +1,4 @@
+const internalServerError = require('../error/InternalServerError');
 const SubmissionProducer=require('../producers/submissionQueueProducer');
 class SubmissionService {
     constructor(submissionRepository) {
@@ -11,7 +12,7 @@ class SubmissionService {
     async addSubmission(submissionPayload){
         const submission=await this.submissionRepository.createSubmission(submissionPayload);
         if(!submission){
-            throw {message:"Not able to create submission"};
+            throw new internalServerError("failed to add submission,Try again later");
         }
         const response=await SubmissionProducer(submission);
         return {queueResponse:response,submission};
