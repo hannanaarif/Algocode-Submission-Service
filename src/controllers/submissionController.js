@@ -7,6 +7,7 @@
  }
  
 async function createSubmission(req,res) {
+    console.log("from submission controller",req.body);
     const response=await this.submissionService.addSubmission(req.body);
 }
 

@@ -6,6 +6,7 @@ const connectToDB=require('./config/dbConfig');
 const errorHandler = require('./utils/errorHandler');
 
 
+
 fastify.register(app);
 fastify.setErrorHandler(errorHandler);
 
